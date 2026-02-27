@@ -1,0 +1,4 @@
+[test]
+# Preloaded before every test file — sets dummy env vars so SDK
+# clients don't throw at instantiation before mocks take effect.
+preload = ["./__tests__/setup.ts"]
