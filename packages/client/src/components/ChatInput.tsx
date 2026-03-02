@@ -26,6 +26,7 @@ export function ChatInput({ onSend, isLoading }: Props) {
     setValue("");
   }
 
+  // Handle the Enter key to send the message, while allowing Shift + Enter for new lines.
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
