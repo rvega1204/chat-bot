@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "rootDirectory": "packages/client",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
   "framework": "vite",
