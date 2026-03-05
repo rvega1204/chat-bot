@@ -41,7 +41,7 @@ export const chatService = {
     const response = await getClient().chat.completions.create({
       model: "llama-3.3-70b-versatile",
       temperature: 0.2,
-      max_tokens: 500,
+      max_tokens: 2048,
       messages: history,
     });
 
