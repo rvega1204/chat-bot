@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd packages/client && bun run build",
-  "outputDirectory": "packages/client/dist",
-  "framework": "vite"
+  "rootDirectory": "packages/client",
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "bun install"
 }
