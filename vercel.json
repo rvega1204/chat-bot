@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "cd packages/client && bun run build",
+  "outputDirectory": "packages/client/dist",
+  "framework": "vite"
+}

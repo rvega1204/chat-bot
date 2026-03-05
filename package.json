@@ -1,7 +1,8 @@
 {
-  "name": "my-app",
+  "name": "Illama-Chat Bot",
   "module": "index.ts",
   "type": "module",
+  "packageManager": "bun@latest",
   "private": true,
   "scripts": {
     "dev": "bun run index.ts",
