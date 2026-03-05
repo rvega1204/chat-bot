@@ -11,7 +11,7 @@ const limiter = rateLimit({
 
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? [process.env.CLIENT_URL ?? ""]
+    ? [process.env.CLIENT_URL?.replace(/\/$/, "") ?? ""]
     : ["http://localhost:5173", "http://localhost:4173"];
 
 const app = express();
