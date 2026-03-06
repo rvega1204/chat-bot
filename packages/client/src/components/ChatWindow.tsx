@@ -24,17 +24,17 @@ export function ChatWindow() {
         </div>
 
         <Sheet>
-          <SheetTrigger className="text-muted-foreground hover:text-foreground transition-colors text-lg select-none">
+          <SheetTrigger className="text-primary hover:text-primary/80 transition-colors text-lg select-none">
             ⓘ
           </SheetTrigger>
-          <SheetContent className="bg-background border-border px-6">
-            <SheetHeader className="pb-4 border-b border-border">
+          <SheetContent className="bg-background border-border px-6 flex flex-col">
+            <SheetHeader className="pb-4 border-b border-border shrink-0">
               <SheetTitle className="text-foreground text-base">
                 About this project
               </SheetTitle>
             </SheetHeader>
 
-            <div className="mt-6 flex flex-col gap-6 text-sm">
+            <div className="mt-6 flex flex-col gap-6 text-sm flex-1 overflow-y-auto pb-4">
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Overview
@@ -77,6 +77,7 @@ export function ChatWindow() {
                   <br />→ Service → Repository
                 </p>
               </div>
+
               <div className="flex flex-col gap-2 rounded-xl border border-destructive/20 bg-destructive/5 px-4 py-3">
                 <p className="text-xs font-semibold uppercase tracking-widest text-destructive/70">
                   Disclaimer
@@ -92,7 +93,7 @@ export function ChatWindow() {
                 </p>
               </div>
 
-              <div className="mt-auto pt-4 border-t border-border">
+              <div className="pt-4 border-t border-border shrink-0">
                 <p className="text-xs text-muted-foreground/50 text-center">
                   © {new Date().getFullYear()} Ricardo Vega · All rights
                   reserved

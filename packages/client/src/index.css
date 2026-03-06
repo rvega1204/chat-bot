@@ -97,7 +97,7 @@
   --accent-foreground: #ece9e3;
   --destructive: #e05252;
   --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.1);
   --ring: #c96442;
   --radius: 0.625rem;
 }
@@ -111,7 +111,6 @@ textarea::placeholder {
   color: var(--muted-foreground);
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -121,5 +120,182 @@ textarea::placeholder {
     font-family: "Inter Variable", "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .chat-input-wrapper {
+    @apply px-6 py-4 border-t border-border shrink-0;
+  }
+
+  .chat-input-error {
+    @apply mb-2 text-xs text-destructive px-1;
+    animation: chatErrorFadeIn 150ms ease forwards;
+  }
+
+  .chat-input-box {
+    @apply flex items-end gap-3
+           bg-muted border border-input
+           rounded-2xl px-4 py-3
+           shadow-sm
+           transition-all
+           focus-within:ring-2 focus-within:ring-ring focus-within:border-transparent;
+  }
+
+  .chat-input-textarea {
+    @apply flex-1 resize-none
+         bg-transparent
+         text-foreground text-sm font-medium leading-relaxed
+         focus:outline-none
+         overflow-hidden;
+    min-height: 24px;
+    max-height: 120px;
+    transition: height 100ms ease;
+  }
+
+  .chat-input-send-btn {
+    @apply shrink-0 self-end
+           bg-primary text-primary-foreground
+           rounded-xl px-4 py-2
+           text-sm font-medium
+           transition-all
+           hover:opacity-90
+           active:scale-95
+           disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+
+  .chat-input-spinner {
+    @apply inline-block size-3 rounded-full
+           border-2 border-primary-foreground/40 border-t-primary-foreground
+           animate-spin;
+  }
+
+  .chat-input-footer {
+    @apply mt-3 text-center text-[11px] text-muted-foreground/65 select-none;
+  }
+
+  .message-bubble-wrapper {
+    @apply flex mb-3;
+  }
+
+  .message-bubble-wrapper--user {
+    @apply justify-end;
+  }
+
+  .message-bubble-wrapper--ai {
+    @apply justify-start;
+  }
+
+  .message-bubble-avatar {
+    @apply w-7 h-7 rounded-full bg-primary
+           flex items-center justify-center
+           text-primary-foreground text-xs font-bold
+           mr-2 mt-1 shrink-0;
+  }
+
+  .message-bubble {
+    @apply max-w-[75%] rounded-2xl px-4 py-3
+           text-sm leading-relaxed text-foreground;
+  }
+
+  .message-bubble--user {
+    @apply bg-secondary rounded-br-sm;
+  }
+
+  .message-bubble--ai {
+    @apply bg-card border border-border rounded-bl-sm;
+  }
+
+  /* Markdown content styles */
+  .message-bubble-content p {
+    @apply mb-3 last:mb-0;
+  }
+
+  .message-bubble-content strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .message-bubble-content em {
+    @apply italic;
+  }
+
+  .message-bubble-content h1,
+  .message-bubble-content h2,
+  .message-bubble-content h3 {
+    @apply font-semibold text-foreground mt-4 mb-2 first:mt-0;
+  }
+
+  .message-bubble-content h1 {
+    @apply text-base;
+  }
+  .message-bubble-content h2 {
+    @apply text-sm;
+  }
+  .message-bubble-content h3 {
+    @apply text-sm;
+  }
+
+  .message-bubble-content ul {
+    @apply list-disc list-outside pl-5 mb-3 space-y-1;
+  }
+
+  .message-bubble-content ol {
+    @apply list-decimal list-outside pl-5 mb-3 space-y-1;
+  }
+
+  .message-bubble-content li {
+    @apply leading-relaxed;
+  }
+
+  .message-bubble-content code {
+    @apply bg-muted text-foreground
+           font-mono text-xs
+           px-1.5 py-0.5 rounded-md;
+  }
+
+  .message-bubble-content pre {
+    @apply bg-muted rounded-xl p-4 mb-3
+           overflow-x-auto;
+  }
+
+  .message-bubble-content pre code {
+    @apply bg-transparent p-0 text-xs leading-relaxed;
+  }
+
+  .message-bubble-content blockquote {
+    @apply border-l-2 border-border pl-3
+           text-muted-foreground italic mb-3;
+  }
+
+  .message-bubble-content a {
+    @apply text-primary underline underline-offset-2
+           hover:opacity-80 transition-opacity;
+  }
+
+  .message-bubble-content hr {
+    @apply border-border my-3;
+  }
+
+  .message-bubble-content table {
+    @apply w-full text-xs border-collapse mb-3;
+  }
+
+  .message-bubble-content th {
+    @apply text-left font-semibold border-b border-border pb-1 pr-4;
+  }
+
+  .message-bubble-content td {
+    @apply border-b border-border/50 py-1 pr-4;
+  }
+}
+
+@keyframes chatErrorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
