@@ -111,10 +111,10 @@ export function ChatWindow() {
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 text-center">
+              <div className="mt-8 text-center">
                 <p className="text-[11px] text-muted-foreground/40">
                   Built by{" "}
-                  <span className="text-muted-foreground/60 font-medium">
+                  <span className="font-medium text-muted-foreground/60">
                     Ricardo Vega
                   </span>{" "}
                   · {new Date().getFullYear()}
