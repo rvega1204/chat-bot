@@ -27,13 +27,14 @@ export function ChatWindow() {
           <SheetTrigger className="text-primary hover:text-primary/80 transition-colors text-lg select-none">
             ⓘ
           </SheetTrigger>
-          <SheetContent className="bg-background border-border px-6 flex flex-col max-h-[90vh] sm:max-w-xl">
+          <SheetContent className="bg-background border-border px-6 flex flex-col max-h-[95vh] sm:max-w-xl">
             <SheetHeader className="pb-4 border-b border-border shrink-0">
               <SheetTitle className="text-foreground text-base">
                 About this project
               </SheetTitle>
             </SheetHeader>
 
+            {/* Scroll solo en mobile */}
             <div className="mt-6 flex flex-col gap-6 text-sm flex-1 overflow-y-auto sm:overflow-y-hidden">
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
@@ -113,6 +114,7 @@ export function ChatWindow() {
               </div>
             </div>
 
+            {/* Footer fijo al bottom */}
             <div className="mt-auto pt-4 pb-4 border-t border-border text-center shrink-0">
               <p className="text-[11px] text-muted-foreground/40">
                 Built by{" "}
