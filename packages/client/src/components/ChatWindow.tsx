@@ -111,9 +111,13 @@ export function ChatWindow() {
                 </p>
               </div>
 
-              <div className="pt-2 text-center">
-                <p className="text-[10px] text-muted-foreground/40">
-                  Built by Ricardo Vega · {new Date().getFullYear()}
+              <div className="mt-8 pt-4 text-center">
+                <p className="text-[11px] text-muted-foreground/40">
+                  Built by{" "}
+                  <span className="text-muted-foreground/60 font-medium">
+                    Ricardo Vega
+                  </span>{" "}
+                  · {new Date().getFullYear()}
                 </p>
               </div>
             </div>
