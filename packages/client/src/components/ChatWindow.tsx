@@ -72,6 +72,18 @@ export function ChatWindow() {
 
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
+                  LLM Flow
+                </p>
+
+                <p className="font-mono text-xs bg-muted text-muted-foreground px-4 py-3 rounded-xl leading-relaxed">
+                  User Prompt → Validation
+                  <br />
+                  → Context Builder → Groq API
+                  <br />→ Llama 3.3 70B → Response
+                </p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Architecture
                 </p>
 
