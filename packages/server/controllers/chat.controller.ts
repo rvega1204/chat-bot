@@ -29,21 +29,25 @@ export const chatController = {
    * - 400 `{ error }` if validation fails.
    * - 500 `{ error }` if an unexpected error occurs.
    */
-    async sendMessage(req: Request, res: Response) {
-        try {
-            const parsed = chatRequestSchema.safeParse(req.body);
+  async sendMessage(req: Request, res: Response) {
+    try {
+      const parsed = chatRequestSchema.safeParse(req.body);
 
-            if (!parsed.success) {
-                return res.status(400).json({ error: parsed.error.format() });
-            }
+      if (!parsed.success) {
+        return res.status(400).json({ error: parsed.error.format() });
+      }
 
-            const { prompt, conversationId } = parsed.data;
+      const { prompt, conversationId } = parsed.data;
 
-            const response = await chatService.sendMessage(prompt, conversationId);
-            res.json({ message: response.message, conversationId });
-        } catch (error) {
-            console.error("Error processing chat request:", error);
-            res.status(500).json({ error: "Error processing chat request" });
-        }
+      const response = await chatService.sendMessage(prompt, conversationId);
+      res.json({ message: response.message, conversationId });
+    } catch (error : any) {
+      console.error("Error processing chat request:", error);
+      if (error.status === 413) {
+        throw new Error("Conversation too large");
+      }
+      
+      res.status(500).json({ error: "Error processing chat request" });
     }
+  },
 };

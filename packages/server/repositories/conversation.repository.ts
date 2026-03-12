@@ -1,5 +1,5 @@
 /** Represents a single message in a conversation turn. */
-type Message = { role: "user" | "assistant"; content: string };
+type Message = { role: "user" | "assistant" | "system"; content: string };
 
 /**
  * In-memory store for conversation histories.
@@ -12,10 +12,10 @@ type Message = { role: "user" | "assistant"; content: string };
 const conversations = new Map<string, Message[]>();
 
 export const conversationRepository = {
-    getHistory,
-    getOrCreateHistory,
-    /** Clears all conversations. Intended for use in tests only. */
-    reset: () => conversations.clear(),
+  getHistory,
+  getOrCreateHistory,
+  /** Clears all conversations. Intended for use in tests only. */
+  reset: () => conversations.clear(),
 };
 
 /**
@@ -25,7 +25,7 @@ export const conversationRepository = {
  * @returns The message array, or `undefined` if the conversation doesn't exist yet.
  */
 function getHistory(conversationId: string): Message[] | undefined {
-    return conversations.get(conversationId);
+  return conversations.get(conversationId);
 }
 
 /**
@@ -36,8 +36,15 @@ function getHistory(conversationId: string): Message[] | undefined {
  * @returns The existing or newly created message array.
  */
 function getOrCreateHistory(conversationId: string): Message[] {
-    if (!conversations.has(conversationId)) {
-        conversations.set(conversationId, []);
-    }
-    return conversations.get(conversationId)!;
+  if (!conversations.has(conversationId)) {
+    conversations.set(conversationId, [
+      {
+        role: "system",
+        content:
+          "You are a helpful AI assistant. Provide clear and concise answers.",
+      },
+    ]);
+  }
+  
+  return conversations.get(conversationId)!;
 }
