@@ -41,8 +41,10 @@ export function ChatWindow() {
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Stateful multi-turn chat powered by Llama 3.3 70B via Groq.
-                  Conversations are kept in memory across multiple turns in the
-                  same session.
+                  Conversation context is maintained in memory within the
+                  session, enabling coherent multi-turn interactions. Token and
+                  prompt size validations are implemented to ensure stability
+                  and prevent exceeding model limits.
                 </p>
               </div>
 
@@ -72,9 +74,10 @@ export function ChatWindow() {
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Architecture
                 </p>
+
                 <p className="font-mono text-xs bg-muted text-muted-foreground px-4 py-3 rounded-xl leading-relaxed">
-                  Request → Router → Controller
-                  <br />→ Service → Repository
+                  Client Request → Router → Controller
+                  <br />→ Service Layer → Repository (In-Memory Store)
                 </p>
               </div>
 
