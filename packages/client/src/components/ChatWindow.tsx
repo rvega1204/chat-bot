@@ -34,7 +34,7 @@ export function ChatWindow() {
               </SheetTitle>
             </SheetHeader>
 
-            <div className="mt-6 flex flex-col gap-6 text-sm pb-4">
+            <div className="mt-6 flex flex-col gap-6 text-sm flex-1 overflow-y-auto sm:overflow-y-hidden">
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Overview
@@ -82,6 +82,7 @@ export function ChatWindow() {
                   <br />→ Llama 3.3 70B → Response
                 </p>
               </div>
+
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Architecture
@@ -110,16 +111,16 @@ export function ChatWindow() {
                   data.
                 </p>
               </div>
+            </div>
 
-              <div className="mt-8 text-center">
-                <p className="text-[11px] text-muted-foreground/40">
-                  Built by{" "}
-                  <span className="font-medium text-muted-foreground/60">
-                    Ricardo Vega
-                  </span>{" "}
-                  · {new Date().getFullYear()}
-                </p>
-              </div>
+            <div className="mt-auto pt-4 pb-4 border-t border-border text-center shrink-0">
+              <p className="text-[11px] text-muted-foreground/40">
+                Built by{" "}
+                <span className="font-medium text-muted-foreground/60">
+                  Ricardo Vega
+                </span>{" "}
+                · {new Date().getFullYear()}
+              </p>
             </div>
           </SheetContent>
         </Sheet>
