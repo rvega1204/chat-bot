@@ -27,7 +27,7 @@ export function ChatWindow() {
           <SheetTrigger className="text-primary hover:text-primary/80 transition-colors text-lg select-none">
             ⓘ
           </SheetTrigger>
-          <SheetContent className="bg-background border-border px-6 flex flex-col max-h-[95vh] sm:max-w-xl">
+          <SheetContent className="bg-background border-border px-6 flex flex-col max-h-[105vh] sm:max-w-xl">
             <SheetHeader className="pb-4 border-b border-border shrink-0">
               <SheetTitle className="text-foreground text-base">
                 About this project
