@@ -111,10 +111,9 @@ export function ChatWindow() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-border shrink-0">
-                <p className="text-xs text-muted-foreground/50 text-center">
-                  © {new Date().getFullYear()} Ricardo Vega · All rights
-                  reserved
+              <div className="pt-2 text-center">
+                <p className="text-[10px] text-muted-foreground/40">
+                  Built by Ricardo Vega · {new Date().getFullYear()}
                 </p>
               </div>
             </div>
