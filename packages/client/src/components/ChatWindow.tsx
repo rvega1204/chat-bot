@@ -85,11 +85,14 @@ export function ChatWindow() {
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   This is a{" "}
                   <span className="text-foreground font-medium">
-                    demo project
+                    demonstration project
                   </span>{" "}
-                  built for learning purposes. The AI may produce incorrect or
-                  incomplete responses. Please use responsibly and avoid sharing
-                  sensitive information.
+                  built for educational purposes. AI-generated responses may
+                  occasionally be inaccurate or incomplete. Token and prompt
+                  size validations have been implemented to ensure system
+                  stability and prevent excessive requests. Please verify
+                  critical information and avoid sharing personal or sensitive
+                  data.
                 </p>
               </div>
 
