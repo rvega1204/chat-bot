@@ -27,14 +27,14 @@ export function ChatWindow() {
           <SheetTrigger className="text-primary hover:text-primary/80 transition-colors text-lg select-none">
             ⓘ
           </SheetTrigger>
-          <SheetContent className="bg-background border-border px-6 flex flex-col">
+          <SheetContent className="bg-background border-border px-6 flex flex-col max-h-[90vh] sm:max-w-xl">
             <SheetHeader className="pb-4 border-b border-border shrink-0">
               <SheetTitle className="text-foreground text-base">
                 About this project
               </SheetTitle>
             </SheetHeader>
 
-            <div className="mt-6 flex flex-col gap-6 text-sm flex-1 overflow-y-auto pb-4">
+            <div className="mt-6 flex flex-col gap-6 text-sm pb-4">
               <div className="flex flex-col gap-2">
                 <p className="text-foreground font-semibold text-xs uppercase tracking-widest text-muted-foreground">
                   Overview
